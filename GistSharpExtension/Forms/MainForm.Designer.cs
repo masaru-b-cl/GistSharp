@@ -36,11 +36,11 @@
       System.Windows.Forms.Label userLabel;
       this.button1 = new System.Windows.Forms.Button();
       this.descriptionTextBox = new System.Windows.Forms.TextBox();
+      this.mainFormViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.filenameTextBox = new System.Windows.Forms.TextBox();
       this.isPublicCheckBox = new System.Windows.Forms.CheckBox();
       this.passwordTextBox = new System.Windows.Forms.TextBox();
       this.userTextBox = new System.Windows.Forms.TextBox();
-      this.mainFormViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
       descriptionLabel = new System.Windows.Forms.Label();
       filenameLabel = new System.Windows.Forms.Label();
       isPublicLabel = new System.Windows.Forms.Label();
@@ -112,6 +112,10 @@
       this.descriptionTextBox.Size = new System.Drawing.Size(432, 19);
       this.descriptionTextBox.TabIndex = 0;
       // 
+      // mainFormViewModelBindingSource
+      // 
+      this.mainFormViewModelBindingSource.DataSource = typeof(TAKANOSho.GistSharpExtension.MainFormViewModel);
+      // 
       // filenameTextBox
       // 
       this.filenameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mainFormViewModelBindingSource, "Filename", true));
@@ -134,6 +138,7 @@
       this.passwordTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mainFormViewModelBindingSource, "Password", true));
       this.passwordTextBox.Location = new System.Drawing.Point(106, 153);
       this.passwordTextBox.Name = "passwordTextBox";
+      this.passwordTextBox.PasswordChar = '*';
       this.passwordTextBox.Size = new System.Drawing.Size(104, 19);
       this.passwordTextBox.TabIndex = 4;
       // 
@@ -144,10 +149,6 @@
       this.userTextBox.Name = "userTextBox";
       this.userTextBox.Size = new System.Drawing.Size(104, 19);
       this.userTextBox.TabIndex = 3;
-      // 
-      // mainFormViewModelBindingSource
-      // 
-      this.mainFormViewModelBindingSource.DataSource = typeof(TAKANOSho.GistSharpExtension.MainFormViewModel);
       // 
       // MainForm
       // 
@@ -166,6 +167,7 @@
       this.Controls.Add(userLabel);
       this.Controls.Add(this.userTextBox);
       this.Name = "MainForm";
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "MainForm";
       this.Load += new System.EventHandler(this.MainForm_Load);
       ((System.ComponentModel.ISupportInitialize)(this.mainFormViewModelBindingSource)).EndInit();

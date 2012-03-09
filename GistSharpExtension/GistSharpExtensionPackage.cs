@@ -80,18 +80,25 @@ namespace TAKANOSho.GistSharpExtension
     /// </summary>
     private void MenuItemCallback(object sender, EventArgs e)
     {
-      // 現在編集中のドキュメントを取得
-      var dte = (DTE2)GetService(typeof(SDTE));
-      var doc = dte.ActiveDocument;
-
-      if (doc != null)
+      try
       {
-        // ファイルパスを取得
-        var fullname = doc.FullName;
-        using (var form = new MainForm(fullname))
+        // 現在編集中のドキュメントを取得
+        var dte = (DTE2)GetService(typeof(SDTE));
+        var doc = dte.ActiveDocument;
+
+        if (doc != null)
         {
-          form.ShowDialog();
+          // ファイルパスを取得
+          var fullname = doc.FullName;
+          using (var form = new MainForm(fullname))
+          {
+            form.ShowDialog();
+          }
         }
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show(ex.ToString());
       }
     }
 

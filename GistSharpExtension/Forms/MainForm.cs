@@ -14,7 +14,7 @@ namespace TAKANOSho.GistSharpExtension
 {
   public partial class MainForm : Form
   {
-    private MainFormViewModel vm = new MainFormViewModel();
+    private MainFormViewModel vm = new MainFormViewModel() { IsPublic = true };
     private string fullname;
     public MainForm()
     {
@@ -37,7 +37,8 @@ namespace TAKANOSho.GistSharpExtension
       var gist = new Gist(vm.User, vm.Password);
       var result = gist.Create(vm.Description, vm.IsPublic, vm.Filename, content);
 
-      Process.Start(result.HtmlUrl);
+      Process process = Process.Start(result.HtmlUrl);
+      process.WaitForExit();
 
       Properties.Settings.Default.User = vm.User;
 
