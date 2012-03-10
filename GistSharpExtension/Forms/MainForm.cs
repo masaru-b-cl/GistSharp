@@ -38,7 +38,10 @@ namespace TAKANOSho.GistSharpExtension
       var result = gist.Create(vm.Description, vm.IsPublic, vm.Filename, content);
 
       Process process = Process.Start(result.HtmlUrl);
-      process.WaitForExit();
+      if (process != null)
+      {
+        process.WaitForExit();
+      }
 
       Properties.Settings.Default.User = vm.User;
 
