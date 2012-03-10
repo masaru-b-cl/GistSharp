@@ -29,6 +29,8 @@ namespace CreateNewGist
       Console.WriteLine("Please input description:");
       var description = Console.ReadLine();
 
+      Console.WriteLine();
+
       bool? isPublic = null;
       do
       {
@@ -45,6 +47,8 @@ namespace CreateNewGist
         }
       } while (!isPublic.HasValue);
 
+      Console.WriteLine();
+
       Console.WriteLine("Please input filename (using \"" + Path.GetFileName(path) + "\" if filename is not input):");
       var filename = Console.ReadLine();
       if (String.IsNullOrEmpty(filename))
@@ -52,12 +56,19 @@ namespace CreateNewGist
         filename = Path.GetFileName(path);
       }
 
+      Console.WriteLine();
+
       Console.WriteLine("Please input user:");
       var user = Console.ReadLine();
+
+      Console.WriteLine();
 
       Console.WriteLine("Please input password:");
       var password = Console.ReadLine();
 
+      Console.WriteLine();
+
+      Console.Write("Creating new gist. Wait for few seconds...");
       var gist = new Gist(user, password);
       try
       {
@@ -67,13 +78,16 @@ namespace CreateNewGist
         {
           process.WaitForExit();
         }
+        Console.WriteLine("done!");
       }
       catch (WebException ex)
       {
         Console.WriteLine(ex.Message);
       }
 
-      Console.WriteLine("終了するには何かキーを押してください...");
+      Console.WriteLine();
+
+      Console.WriteLine("Please press any key for exit...");
       Console.ReadKey();
     }
   }
