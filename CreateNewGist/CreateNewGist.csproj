@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{7F827986-4B85-4729-9995-3629783C18CA}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CreateNewGist</RootNamespace>
     <AssemblyName>CreateNewGist</AssemblyName>
@@ -33,10 +33,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>CreateNewGist.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +49,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\GistSharpExtension\Forms\MainForm.cs">
+      <Link>Forms\MainForm.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\GistSharpExtension\Forms\MainForm.designer.cs">
+      <Link>Forms\MainForm.designer.cs</Link>
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\GistSharpExtension\ViewModels\MainFormViewModel.cs">
+      <Link>ViewModels\MainFormViewModel.cs</Link>
+    </Compile>
     <Compile Include="..\GistSharp\DynamicJson.cs">
       <Link>DynamicJson.cs</Link>
     </Compile>
@@ -55,6 +71,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\GistSharpExtension\Forms\MainForm.resx">
+      <Link>Forms\MainForm.resx</Link>
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

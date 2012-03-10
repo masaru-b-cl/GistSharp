@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using GistSharp;
 using System.Diagnostics;
+using System.Net;
 
 namespace TAKANOSho.GistSharpExtension
 {
@@ -19,8 +19,6 @@ namespace TAKANOSho.GistSharpExtension
     public MainForm()
     {
       InitializeComponent();
-
-      vm.User = Properties.Settings.Default.User;
     }
 
     public MainForm(string fullname)
@@ -33,17 +31,22 @@ namespace TAKANOSho.GistSharpExtension
 
     private void button1_Click(object sender, EventArgs e)
     {
-      var content = File.ReadAllText(fullname);
-      var gist = new Gist(vm.User, vm.Password);
-      var result = gist.Create(vm.Description, vm.IsPublic, vm.Filename, content);
-
-      Process process = Process.Start(result.HtmlUrl);
-      if (process != null)
+      try
       {
-        process.WaitForExit();
+        var content = File.ReadAllText(fullname);
+        var gist = new Gist(vm.User, vm.Password);
+        var result = gist.Create(vm.Description, vm.IsPublic, vm.Filename, content);
+        Process process = Process.Start(result.HtmlUrl);
+        if (process != null)
+        {
+          process.WaitForExit();
+        }
       }
-
-      Properties.Settings.Default.User = vm.User;
+      catch (WebException ex)
+      {
+        MessageBox.Show(ex.Message);
+        return;
+      }
 
       this.Close();
     }
