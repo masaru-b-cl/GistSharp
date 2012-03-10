@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // アセンブリに関連付けられている情報を変更するには、
 // これらの属性値を変更してください。
 [assembly: AssemblyTitle("CreateNewGist")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("コマンドライン引数で指定したファイルを、新たなGistリポジトリーを作成して登録します。")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("TAKANO Sho")]
 [assembly: AssemblyProduct("CreateNewGist")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
+[assembly: AssemblyCopyright("Copyright © TAKANO Sho")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
