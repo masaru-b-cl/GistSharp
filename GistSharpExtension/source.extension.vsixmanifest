@@ -7,6 +7,7 @@
     <Description xml:space="preserve">新たなGistリポジトリーを作成し、現在編集中のファイルを登録します。</Description>
     <Locale>1041</Locale>
     <License>LISENCE.txt</License>
+    <PreviewImage>form.jpg</PreviewImage>
     <InstalledByMsi>false</InstalledByMsi>
     <SupportedProducts>
       <VisualStudio Version="10.0">
