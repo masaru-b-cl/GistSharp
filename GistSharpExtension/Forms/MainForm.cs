@@ -16,17 +16,22 @@ namespace TAKANOSho.GistSharpExtension
   {
     private MainFormViewModel vm = new MainFormViewModel() { IsPublic = true };
     private string fullname;
-    public MainForm()
-    {
-      InitializeComponent();
-    }
 
     public MainForm(string fullname)
-      : this()
+      : this(fullname, "", "")
     {
+    }
+
+    public MainForm(string fullname, string user, string password)
+    {
+      InitializeComponent();
+
       this.fullname = fullname;
       var filename = Path.GetFileName(fullname);
       vm.Filename = filename;
+
+      vm.User = user;
+      vm.Password = password;
     }
 
     private void button1_Click(object sender, EventArgs e)

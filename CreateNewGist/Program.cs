@@ -29,9 +29,18 @@ namespace CreateNewGist
         return -1;
       }
 
+      string user = "";
+      string password = "";
+
+      if (3 <= args.Length)
+      {
+        user = args[1];
+        password = args[2];
+      }
+
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      Application.Run(new MainForm(path));
+      Application.Run(new MainForm(path, user, password));
 
       return 0;
     }
