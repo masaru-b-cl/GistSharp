@@ -32,6 +32,7 @@ namespace TAKANOSho.GistSharpExtension
   // This attribute is needed to let the shell know that this package exposes some menus.
   [ProvideMenuResource("Menus.ctmenu", 1)]
   [Guid(GuidList.guidGistSharpExtensionPkgString)]
+  [ProvideOptionPage(typeof(GistSharpExtensionOptionPage), "GistSharpExtension", "General", 101, 106, true)]
   public sealed class GistSharpExtensionPackage : Package
   {
     /// <summary>
@@ -88,9 +89,24 @@ namespace TAKANOSho.GistSharpExtension
 
         if (doc != null)
         {
+          // GitHubアカウント情報を取得
+          string user = null;
+          string password = null;
+          var regRoot = UserRegistryRoot;
+          var dialogPageRegKey = regRoot.OpenSubKey(typeof(DialogPage).Name);
+          if (dialogPageRegKey != null)
+          {
+            var optionRegKey = dialogPageRegKey.OpenSubKey(typeof(GistSharpExtensionOptionPage).FullName);
+            if (optionRegKey != null)
+            {
+              user = optionRegKey.GetValue("User") as string;
+              password = optionRegKey.GetValue("Password") as string;
+            }
+          }
+
           // ファイルパスを取得
           var fullname = doc.FullName;
-          using (var form = new MainForm(fullname))
+          using (var form = new MainForm(fullname, user, password))
           {
             form.ShowDialog();
           }

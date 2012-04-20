@@ -120,6 +120,9 @@
     <Compile Include="..\GistSharp\GistResult.cs">
       <Link>GistResult.cs</Link>
     </Compile>
+    <Compile Include="GistSharpExtensionOptionPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Guids.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
