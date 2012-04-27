@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // アセンブリに関連付けられている情報を変更するには、
 // これらの属性値を変更してください。
 [assembly: AssemblyTitle("GistSharp")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Gist APIを通じて新たなGistを作成します。")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("TAKANO Sho")]
 [assembly: AssemblyProduct("GistSharp")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
+[assembly: AssemblyCopyright("Copyright © TAKANO Sho 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

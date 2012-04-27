@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("TAKANO Sho")]
 [assembly: AssemblyProduct("CreateNewGist")]
-[assembly: AssemblyCopyright("Copyright © TAKANO Sho")]
+[assembly: AssemblyCopyright("Copyright © TAKANO Sho 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

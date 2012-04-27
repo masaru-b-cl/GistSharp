@@ -111,15 +111,6 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\GistSharp\DynamicJson.cs">
-      <Link>DynamicJson.cs</Link>
-    </Compile>
-    <Compile Include="..\GistSharp\Gist.cs">
-      <Link>Gist.cs</Link>
-    </Compile>
-    <Compile Include="..\GistSharp\GistResult.cs">
-      <Link>GistResult.cs</Link>
-    </Compile>
     <Compile Include="GistSharpExtensionOptionPage.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -131,11 +122,6 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\MainFormViewModel.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
     <Compile Include="Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -163,10 +149,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Properties\DataSources\MainFormViewModel.datasource" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
@@ -192,6 +174,12 @@
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="Resources\Package.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GistSharp\GistSharp.csproj">
+      <Project>{4D1C08FF-35D2-41CD-8449-25A4AE73EFC4}</Project>
+      <Name>GistSharp</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <UseCodebase>true</UseCodebase>
