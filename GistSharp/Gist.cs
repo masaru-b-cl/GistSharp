@@ -70,6 +70,7 @@ namespace GistSharp
         .Replace(@"""", @"\""")
         .Replace(@"
 ", @"\n")
+        .Replace("\t", @"\t")
         ;
     }
   }

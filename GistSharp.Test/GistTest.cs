@@ -77,6 +77,7 @@ namespace GistSharp.Test
       Assert.AreEqual(@"\\", Gist_Accessor.Escape(@"\"));
       Assert.AreEqual(@"\n", Gist_Accessor.Escape(@"
 "));
+      Assert.AreEqual(@"\t", Gist_Accessor.Escape("\t"));
     }
   }
 }
