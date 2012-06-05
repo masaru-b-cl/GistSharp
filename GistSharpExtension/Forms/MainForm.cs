@@ -44,7 +44,7 @@ namespace TAKANOSho.GistSharpExtension
         Process process = Process.Start(result.HtmlUrl);
         if (process != null)
         {
-          process.WaitForExit();
+          process.WaitForInputIdle();
         }
       }
       catch (WebException ex)
