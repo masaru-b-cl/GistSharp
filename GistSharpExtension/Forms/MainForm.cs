@@ -51,6 +51,11 @@ namespace TAKANOSho.GistSharpExtension
       {
         CreateNewGist();
       }
+
+      if (e.KeyCode == Keys.Escape)
+      {
+        this.Close();
+      }
     }
 
     private void CreateNewGist()
