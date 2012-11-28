@@ -41,6 +41,7 @@
       this.passwordTextBox = new System.Windows.Forms.TextBox();
       this.userTextBox = new System.Windows.Forms.TextBox();
       this.mainFormViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.label1 = new System.Windows.Forms.Label();
       descriptionLabel = new System.Windows.Forms.Label();
       filenameLabel = new System.Windows.Forms.Label();
       isPublicLabel = new System.Windows.Forms.Label();
@@ -98,9 +99,9 @@
       // 
       this.button1.Location = new System.Drawing.Point(106, 191);
       this.button1.Name = "button1";
-      this.button1.Size = new System.Drawing.Size(137, 23);
+      this.button1.Size = new System.Drawing.Size(119, 33);
       this.button1.TabIndex = 5;
-      this.button1.Text = "Create new gist";
+      this.button1.Text = "Create new gist\r\n(Ctrl+Enter)";
       this.button1.UseVisualStyleBackColor = true;
       this.button1.Click += new System.EventHandler(this.button1_Click);
       // 
@@ -150,11 +151,20 @@
       // 
       this.mainFormViewModelBindingSource.DataSource = typeof(TAKANOSho.GistSharpExtension.MainFormViewModel);
       // 
+      // label1
+      // 
+      this.label1.AutoSize = true;
+      this.label1.Location = new System.Drawing.Point(249, 196);
+      this.label1.Name = "label1";
+      this.label1.Size = new System.Drawing.Size(0, 12);
+      this.label1.TabIndex = 21;
+      // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(573, 236);
+      this.Controls.Add(this.label1);
       this.Controls.Add(this.button1);
       this.Controls.Add(descriptionLabel);
       this.Controls.Add(this.descriptionTextBox);
@@ -166,10 +176,12 @@
       this.Controls.Add(this.passwordTextBox);
       this.Controls.Add(userLabel);
       this.Controls.Add(this.userTextBox);
+      this.KeyPreview = true;
       this.Name = "MainForm";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Create new gist";
       this.Load += new System.EventHandler(this.MainForm_Load);
+      this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
       ((System.ComponentModel.ISupportInitialize)(this.mainFormViewModelBindingSource)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
@@ -185,5 +197,6 @@
     private System.Windows.Forms.CheckBox isPublicCheckBox;
     private System.Windows.Forms.TextBox passwordTextBox;
     private System.Windows.Forms.TextBox userTextBox;
+    private System.Windows.Forms.Label label1;
   }
 }

@@ -9,6 +9,7 @@ using System.IO;
 using GistSharp;
 using System.Diagnostics;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace TAKANOSho.GistSharpExtension
 {
@@ -34,31 +35,53 @@ namespace TAKANOSho.GistSharpExtension
       vm.Password = password;
     }
 
-    private void button1_Click(object sender, EventArgs e)
-    {
-      try
-      {
-        var content = File.ReadAllText(fullname);
-        var gist = new Gist(vm.User, vm.Password);
-        var result = gist.Create(vm.Description, vm.IsPublic, vm.Filename, content);
-        Process process = Process.Start(result.HtmlUrl);
-        if (process != null)
-        {
-          process.WaitForInputIdle();
-        }
-      }
-      catch (WebException ex)
-      {
-        MessageBox.Show(ex.Message);
-        return;
-      }
-
-      this.Close();
-    }
-
     private void MainForm_Load(object sender, EventArgs e)
     {
       mainFormViewModelBindingSource.DataSource = vm;
     }
+
+    private void button1_Click(object sender, EventArgs e)
+    {
+      CreateNewGist();
+    }
+
+    private void MainForm_KeyDown(object sender, KeyEventArgs e)
+    {
+      if (e.Control && e.KeyCode == Keys.Enter)
+      {
+        CreateNewGist();
+      }
+    }
+
+    private void CreateNewGist()
+    {
+      try
+      {
+        this.Cursor = Cursors.WaitCursor;
+
+        try
+        {
+          var content = File.ReadAllText(fullname);
+          var gist = new Gist(vm.User, vm.Password);
+          var result = gist.Create(vm.Description, vm.IsPublic, vm.Filename, content);
+          Process process = Process.Start(result.HtmlUrl);
+          if (process != null)
+          {
+            process.WaitForInputIdle();
+          }
+
+          this.Close();
+        }
+        catch (WebException ex)
+        {
+          MessageBox.Show(ex.Message);
+        }
+      }
+      finally
+      {
+        this.Cursor = Cursors.Default;
+      }
+    }
+
   }
 }
