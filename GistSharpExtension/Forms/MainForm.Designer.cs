@@ -36,11 +36,11 @@
       System.Windows.Forms.Label userLabel;
       this.button1 = new System.Windows.Forms.Button();
       this.descriptionTextBox = new System.Windows.Forms.TextBox();
+      this.mainFormViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.filenameTextBox = new System.Windows.Forms.TextBox();
       this.isPublicCheckBox = new System.Windows.Forms.CheckBox();
       this.passwordTextBox = new System.Windows.Forms.TextBox();
       this.userTextBox = new System.Windows.Forms.TextBox();
-      this.mainFormViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.label1 = new System.Windows.Forms.Label();
       descriptionLabel = new System.Windows.Forms.Label();
       filenameLabel = new System.Windows.Forms.Label();
@@ -107,15 +107,19 @@
       // 
       // descriptionTextBox
       // 
-      this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mainFormViewModelBindingSource, "Description", true));
+      this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mainFormViewModelBindingSource, "Description", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
       this.descriptionTextBox.Location = new System.Drawing.Point(106, 23);
       this.descriptionTextBox.Name = "descriptionTextBox";
       this.descriptionTextBox.Size = new System.Drawing.Size(432, 19);
       this.descriptionTextBox.TabIndex = 0;
       // 
+      // mainFormViewModelBindingSource
+      // 
+      this.mainFormViewModelBindingSource.DataSource = typeof(TAKANOSho.GistSharpExtension.MainFormViewModel);
+      // 
       // filenameTextBox
       // 
-      this.filenameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mainFormViewModelBindingSource, "Filename", true));
+      this.filenameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mainFormViewModelBindingSource, "Filename", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
       this.filenameTextBox.Location = new System.Drawing.Point(106, 78);
       this.filenameTextBox.Name = "filenameTextBox";
       this.filenameTextBox.Size = new System.Drawing.Size(178, 19);
@@ -123,7 +127,7 @@
       // 
       // isPublicCheckBox
       // 
-      this.isPublicCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.mainFormViewModelBindingSource, "IsPublic", true));
+      this.isPublicCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.mainFormViewModelBindingSource, "IsPublic", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
       this.isPublicCheckBox.Location = new System.Drawing.Point(106, 48);
       this.isPublicCheckBox.Name = "isPublicCheckBox";
       this.isPublicCheckBox.Size = new System.Drawing.Size(104, 24);
@@ -132,7 +136,7 @@
       // 
       // passwordTextBox
       // 
-      this.passwordTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mainFormViewModelBindingSource, "Password", true));
+      this.passwordTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mainFormViewModelBindingSource, "Password", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
       this.passwordTextBox.Location = new System.Drawing.Point(106, 153);
       this.passwordTextBox.Name = "passwordTextBox";
       this.passwordTextBox.PasswordChar = '*';
@@ -141,15 +145,11 @@
       // 
       // userTextBox
       // 
-      this.userTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mainFormViewModelBindingSource, "User", true));
+      this.userTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mainFormViewModelBindingSource, "User", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
       this.userTextBox.Location = new System.Drawing.Point(107, 128);
       this.userTextBox.Name = "userTextBox";
       this.userTextBox.Size = new System.Drawing.Size(104, 19);
       this.userTextBox.TabIndex = 3;
-      // 
-      // mainFormViewModelBindingSource
-      // 
-      this.mainFormViewModelBindingSource.DataSource = typeof(TAKANOSho.GistSharpExtension.MainFormViewModel);
       // 
       // label1
       // 
