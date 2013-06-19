@@ -59,6 +59,7 @@ namespace GistSharp
             encoding.GetBytes(String.Format("{0}:{1}", user, password))
             );
       client.Headers["Authorization"] = String.Format("Basic {0}", credentials);
+      client.Headers["User-Agent"] = "GistSharp";
       return client;
     }
 
